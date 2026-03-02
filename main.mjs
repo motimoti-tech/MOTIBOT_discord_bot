@@ -23,7 +23,7 @@ client.commands.set(illuminationCommand.data.name, illuminationCommand);
 client.commands.set(jankenCommand.data.name, jankenCommand);
 
 // Botが起動したときの処理
-client.once('ready', () => {
+client.once('clientReady', () => {
     console.log(`🎉 ${client.user.tag} が正常に起動しました！`);
     client.user.setActivity('みんなのことがだいちゅき❤', { 
         type: ActivityType.Custom, 
