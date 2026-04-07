@@ -1,4 +1,4 @@
-// ▼▼▼ セリフを増やしたい時はここに追加するだけ！ ▼▼▼
+// ▼▼▼ めぐる専用のセリフリスト ▼▼▼
 const responseList = [
     { keyword: 'おはよう', reply: 'おはよう！☀' },
     { keyword: 'おやすみ', reply: '...zzz' },
@@ -15,30 +15,19 @@ const responseList = [
     { keyword: ['好き', 'すき'], reply: 'だいちゅき❤' },
     { keyword: ['応援', 'おうえん'], reply: 'フレ！フレ！がんばれ！君ならできりゅ！' }
 ];
-// ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
-/**
- * メッセージを受け取って返信を判断する関数
- * @param {import('discord.js').Message} message 
- */
 export async function handleMessage(message) {
-    // Bot自身の発言は無視
     if (message.author.bot) return;
 
-    // ▼▼▼ 反応するチャンネルIDをここに全部書く！ ▼▼▼
     const allowedChannels = [
         '1468953901721063446',  
         '1271671804448084008'   
     ];
 
-    // 「許可リスト」の中に、メッセージが投稿されたチャンネルIDが含まれていなければ無視
     if (!allowedChannels.includes(message.channel.id)) return;
-    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
     for (const item of responseList) {
-        // ... (以下、返信ロジックはそのまま) ...
         let isMatch = false;
-
         if (Array.isArray(item.keyword)) {
             isMatch = item.keyword.some(k => message.content.includes(k));
         } else {
@@ -48,10 +37,10 @@ export async function handleMessage(message) {
         if (isMatch) {
             try {
                 await message.reply(item.reply);
-                console.log(`💬 反応しました: "${item.keyword}" -> ${message.author.tag}`);
+                console.log(`💬 [めぐる] 反応: "${item.keyword}" -> ${message.author.tag}`);
                 return;
             } catch (error) {
-                console.error('❌ 返信エラー:', error);
+                console.error('❌ [めぐる] 返信エラー:', error);
             }
         }
     }

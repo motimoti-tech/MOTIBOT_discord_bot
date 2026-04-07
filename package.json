@@ -1,23 +1,24 @@
 {
-  "name": "kinakomoti_discord_bot",
+  "name": "motibot_discord_bot",
   "version": "1.0.0",
-  "description": "きなこもち",
-  "main": "index.js",
+  "description": "MOTIBOT",
+  "main": "main.mjs",
   "scripts": {
+    "start": "node main.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motimoti-tech/kinakomoti_discord_bot.git"
+    "url": "git+https://github.com/motimoti-tech/MOTIBOT_discord_bot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
-    "url": "https://github.com/motimoti-tech/kinakomoti_discord_bot/issues"
+    "url": "https://github.com/motimoti-tech/MOTIBOT_discord_bot/issues"
   },
-  "homepage": "https://github.com/motimoti-tech/kinakomoti_discord_bot#readme",
+  "homepage": "https://github.com/motimoti-tech/MOTIBOT_discord_bot#readme",
   "dependencies": {
     "discord.js": "^14.25.1",
     "dotenv": "^17.2.3",
